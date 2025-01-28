@@ -10,7 +10,7 @@ def create_vectordb(documents, k: int):
         chunks = text_splitter.split_documents(documents)
 
         # Define embeddings using OpenAI
-        embeddings = OpenAIEmbeddings()
+        embeddings = OpenAIEmbeddings(model="text-embedding-ada-002")
 
         # Create a vector database from the document chunks and embeddings
         db = DocArrayInMemorySearch.from_documents(chunks, embeddings)
